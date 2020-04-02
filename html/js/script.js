@@ -30,6 +30,7 @@ function animal_buy(pet, label, price) {
 	$('#popupYes').on('click', function (e){
 		$.post('http://od_animal/animal_buy', JSON.stringify({ pet: pet, label: label, price: price}));
 		pet = '';
+		label = '';
 		price = 0;
 		$('.popup').fadeOut(100);
 		$.post('http://od_animal/NUIFocusOff');
@@ -38,6 +39,7 @@ function animal_buy(pet, label, price) {
 	
 	$('#popupNo').on('click', function (e) {
 		pet = '';
+		label = '';
 		price = 0;
 		$('.popup').fadeOut(100);
 		$.post('http://od_animal/NUIFocusOff');
