@@ -34,7 +34,7 @@ AddEventHandler('od_animal:consumePetFood', function()
 	xPlayer.removeInventoryItem('croquettes', 1)
 end)
 
-ESX.RegisterServerCallback('od_animal:buyPet', function(source, cb, pet, price)
+ESX.RegisterServerCallback('od_animal:buyPet', function(source, cb, pet, label, price)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	if price == 0 then
 		print('od_animal: %s attempted to buy an invalid pet!')
@@ -47,7 +47,7 @@ ESX.RegisterServerCallback('od_animal:buyPet', function(source, cb, pet, price)
 			['@identifier'] = xPlayer.identifier,
 			['@pet'] = pet
 		}, function(rowsChanged)
-			TriggerClientEvent('esx:showNotification', xPlayer.source, _U('you_bought', ESX.Math.GroupDigits(price)))
+			TriggerClientEvent('esx:showNotification', xPlayer.source, _U('you_bought', label, ESX.Math.GroupDigits(price)))
 			cb(true)
 		end)
 	else
