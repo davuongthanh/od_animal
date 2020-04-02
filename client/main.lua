@@ -475,7 +475,7 @@ RegisterNUICallback('animal_buy', function(data)
 			if boughtPed then
 				
 			end
-		end, data.pet, tonumber(data.price))
+		end, data.pet, data.label, tonumber(data.price))
 	end
 end)
 
